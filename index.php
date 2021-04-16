@@ -104,21 +104,23 @@
 			<form action="" method="post">
 				<label for="Tables">
 					<h3>Search Table</h3>
-					<input type="radio" name="Table" id="RequestsTable1" value="1">
+					<input type="radio" name="Table" id="RequestsTable1" value="data_contragents">
 					<label for="SelectTable1">Table1</label><br/>
-					<input type="radio" name="Table" id="RequestsTable2" value="2">
+					<input type="radio" name="Table" id="RequestsTable2" value="данныепоперевозкам">
 					<label for="SelectTable1">Table2</label><br/>
-					<input type="radio" name="Table" id="RequestsTable3" value="3">
+					<input type="radio" name="Table" id="RequestsTable3" value="данныепогрузу">
 					<label for="SelectTable1">Table3</label><br/><br/><br/>
 				</label>
 				<label for="SelectedColumn">
 					<h4>Selected Column</h4>
-					<select name="SelectedColumn" id="SelectedColumn"></select>
+					<select name="SelectedColumn" id="SelectedColumn" required></select>
 				</label>
 				<br/>
-				<input type="text" name="ColumnValue" id="ColumnValue">
-				<input type="submit" value="Submit">
+				<input type="text" name="ColumnValue" id="ColumnValue" autocomplete="off" required>
+				<input id="SubmitFormRequests" type="submit" value="Submit">
 			</form>
+			<br/>
+			<table id="ResultRequests"></table>
 		</div>
 	</section>
 	<section id="SecTriggers">
@@ -146,27 +148,7 @@
         
         <script src="js/common.js"></script>
 
-		<script>
-			$(window).on('load', function() {
-				$(".loader_inner").fadeOut();
-				$(".loader").delay(400).fadeOut("slow");
-			});
-		</script>
 
-		<script>
-			$('input[type = "radio"]').click(function SelectedRadioButton() {
-				var SelectedRadioBtn = $('input:checked').val();
-				if(SelectedRadioBtn == 1) {
-					document.getElementById('SelectedColumn').innerHTML = ('<option value="1">№ п/п</option><option value="2">Контрагент</option><option value="3">id_Контрагента</option><option value="4">Инн/Кпп</option><option value="5">Юр. адрес организации</option><option value="6">Почта</option>');
-				}
-				if(SelectedRadioBtn == 2) {
-					document.getElementById('SelectedColumn').innerHTML = ('<option value="1">№ п/п</option><option value="2">Контрагент</option><option value="3">id_Контрагента</option><option value="4">Загрузка</option><option value="5">Разгрузка</option>');
-				}
-				if(SelectedRadioBtn == 3) {
-					document.getElementById('SelectedColumn').innerHTML = ('<option value="1">№ п/п</option><option value="2">id_Контрагента</option><option value="3">Вес,т / объём,м³, груз</option><option value="4">Ставка</option>');
-				}
-			});
-	</script>
     </div>
 	
 </body>
